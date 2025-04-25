@@ -43,6 +43,10 @@ public class Assertions extends BaseHelp {
         assertThat(element).isChecked();
     }
 
+    public void verifyElementIsNotChecked(Locator element) {
+        assertThat(element).not().isChecked();
+    }
+
     public boolean verifyDropDownSelectedElement(Locator element, String value) {
         return element.inputValue().contains(value);
     }

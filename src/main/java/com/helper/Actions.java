@@ -16,7 +16,7 @@ public class Actions extends BaseHelp {
     }
 
     public void clickJS(Locator element) {
-        page.evaluate("arguments[0].click()", element);
+        element.evaluate("element => element.click()");
     }
 
     public void scrollToElement(Locator element) {
@@ -24,7 +24,7 @@ public class Actions extends BaseHelp {
     }
 
     public void scrollToElementJS(Locator element) {
-        page.evaluate("arguments[0].click()", element);
+        element.evaluate("element => element.scrollIntoView()");
     }
 
     public void scrollToElementAndClick(Locator element, ScrollOptions scrollOptions, ClickOptions clickOptions) {
@@ -40,13 +40,13 @@ public class Actions extends BaseHelp {
 
     public void clickOnCheckBox(Locator element) {
         if (!element.isChecked()) {
-            scrollToElementAndClick(element, ScrollOptions.JAVASCRIPT, ClickOptions.JAVASCRIPT);
+            clickJS(element);
         }
     }
 
     public void unClickOnCheckBox(Locator element) {
         if (element.isChecked()) {
-            scrollToElementAndClick(element, ScrollOptions.JAVASCRIPT, ClickOptions.JAVASCRIPT);
+            clickJS(element);
         }
     }
 
