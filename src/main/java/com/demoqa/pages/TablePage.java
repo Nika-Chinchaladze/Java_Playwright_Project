@@ -5,8 +5,8 @@ import com.data.enums.ClickOptions;
 import com.data.enums.ScrollOptions;
 import com.demoqa.windows.AddModalWindow;
 import com.demoqa.windows.EditModalWindow;
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 
 public class TablePage extends BasePage {
     // Locators

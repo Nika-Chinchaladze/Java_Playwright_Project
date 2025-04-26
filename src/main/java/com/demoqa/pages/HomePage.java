@@ -3,15 +3,10 @@ package com.demoqa.pages;
 import com.base.BasePage;
 import com.data.enums.ClickOptions;
 import com.data.enums.ScrollOptions;
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 
 public class HomePage extends BasePage {
-    // Constructor
-    public HomePage(Page page) {
-        super(page);
-    }
-
     // Locators
     public Locator cards = page.locator(".category-cards");
     public Locator practiceForm = page.locator("//span[text()='Practice Form']");
@@ -19,6 +14,10 @@ public class HomePage extends BasePage {
     public Locator links = page.locator("//span[text()='Links']");
     public Locator selectMenu = page.locator("//span[text()='Select Menu']");
     public Locator datePicker = page.locator("//span[text()='Date Picker']");
+    // Constructor
+    public HomePage(Page page) {
+        super(page);
+    }
 
     // Assertions
     public void verifyHomePage() {

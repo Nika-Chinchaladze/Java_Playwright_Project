@@ -1,8 +1,8 @@
 package com.demoqa.pages;
 
 import com.base.BasePage;
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 
 public class PracticeFormPage extends BasePage {
     // Locators

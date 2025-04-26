@@ -1,8 +1,8 @@
 package com.demoqa.windows;
 
 import com.demoqa.pages.TablePage;
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 
 public class EditModalWindow extends TablePage {
     // Locators

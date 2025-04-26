@@ -1,7 +1,8 @@
 package com.helper;
 
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class Assertions extends BaseHelp {

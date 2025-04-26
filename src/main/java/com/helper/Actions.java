@@ -2,8 +2,8 @@ package com.helper;
 
 import com.data.enums.ClickOptions;
 import com.data.enums.ScrollOptions;
-import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.SelectOption;
 
 public class Actions extends BaseHelp {

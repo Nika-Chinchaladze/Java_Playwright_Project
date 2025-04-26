@@ -2,7 +2,7 @@ package com.demoqa.tests;
 
 import com.demoqa.base.BaseTest;
 import com.demoqa.pages.TablePage;
-import io.qameta.allure.*;
+import io.qameta.allure.Feature;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
