@@ -14,6 +14,7 @@ public class HomePage extends BasePage {
     public Locator links = page.locator("//span[text()='Links']");
     public Locator selectMenu = page.locator("//span[text()='Select Menu']");
     public Locator datePicker = page.locator("//span[text()='Date Picker']");
+    public Locator modalDialogs = page.locator("//span[text()='Modal Dialogs']");
     // Constructor
     public HomePage(Page page) {
         super(page);
@@ -26,7 +27,7 @@ public class HomePage extends BasePage {
 
     // Actions
     protected Locator getCardLocator(String cardName) {
-        return page.locator("//h5[text()='" + cardName + "']");
+        return page.locator("//h5[contains(text(), '" + cardName + "')]");
     }
 
     public <T> T transferToSpecificPage(String cardName, Locator element, Class<T> pageClassName) {
