@@ -11,9 +11,10 @@ public class DatePageTest extends BaseTest {
     private DatePage datePage;
 
     @BeforeMethod(description = "Navigate user to Date Picker Page")
-    public void testDatePage() {
+    public void testUserIsRedirectedToDatePage() {
+        homePage.actions.navigateToUrl(homePage.url);
         homePage.verifyHomePage();
-        datePage = homePage.transferToSpecificPage("Widgets", homePage.datePicker, DatePage.class);
+        datePage = homePage.transferToSpecificPage("Widgets", homePage.getSectionLocator("Date Picker"), DatePage.class);
         datePage.verifyDatePage();
     }
 

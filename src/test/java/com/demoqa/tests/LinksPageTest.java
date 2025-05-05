@@ -9,9 +9,10 @@ public class LinksPageTest extends BaseTest {
     private LinksPage linksPage;
 
     @BeforeMethod(description = "Navigate User to Links Page")
-    public void navigateToLinksPage() {
+    public void testUserIsRedirectedToLinksPage() {
+        homePage.actions.navigateToUrl(homePage.url);
         homePage.verifyHomePage();
-        linksPage = homePage.transferToSpecificPage("Elements", homePage.links, LinksPage.class);
+        linksPage = homePage.transferToSpecificPage("Elements", homePage.getSectionLocator("Links"), LinksPage.class);
         linksPage.assertions.verifyElementIsVisible(linksPage.title);
         linksPage.assertions.verifyElementIsEnabled(linksPage.badRequest);
     }

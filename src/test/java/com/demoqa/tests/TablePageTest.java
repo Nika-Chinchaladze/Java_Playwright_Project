@@ -11,9 +11,10 @@ public class TablePageTest extends BaseTest {
     private TablePage tablePage;
 
     @BeforeMethod(description = "navigateToTablePage")
-    public void navigateToTablePage() {
+    public void testUserIsRedirectedToTablePage() {
+        homePage.actions.navigateToUrl(homePage.url);
         homePage.verifyHomePage();
-        tablePage = homePage.transferToSpecificPage("Elements", homePage.webTables, TablePage.class);
+        tablePage = homePage.transferToSpecificPage("Elements", homePage.getSectionLocator("Web Tables"), TablePage.class);
         tablePage.assertions.verifyElementIsVisible(tablePage.title);
     }
 

@@ -3,6 +3,8 @@ package com.helper;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
+import java.util.concurrent.CompletableFuture;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class Assertions extends BaseHelp {
@@ -50,5 +52,21 @@ public class Assertions extends BaseHelp {
 
     public boolean verifyDropDownSelectedElement(Locator element, String value) {
         return element.inputValue().contains(value);
+    }
+
+    public boolean verifyAlertByTextContent(Locator element, String alertText, boolean acceptOption, String promptText) {
+        CompletableFuture<Boolean> result = new CompletableFuture<>();
+        page.onDialog(dialog -> {
+            boolean match = dialog.message().contains(alertText);
+            if (acceptOption) {
+                dialog.accept(promptText);
+            }
+            else {
+                dialog.dismiss();
+            }
+            result.complete(match);
+        });
+        element.click();
+        return result.join();
     }
 }

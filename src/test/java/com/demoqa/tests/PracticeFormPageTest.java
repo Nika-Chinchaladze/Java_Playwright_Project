@@ -11,9 +11,10 @@ public class PracticeFormPageTest extends BaseTest {
     private PracticeFormPage practiceFormPage;
 
     @BeforeMethod(description = "navigateToPracticeFormPage")
-    public void navigateToPracticeFormPage() {
+    public void testUserIsRedirectedToPracticeFormPage() {
+        homePage.actions.navigateToUrl(homePage.url);
         homePage.verifyHomePage();
-        practiceFormPage = homePage.transferToSpecificPage("Forms", homePage.practiceForm, PracticeFormPage.class);
+        practiceFormPage = homePage.transferToSpecificPage("Forms", homePage.getSectionLocator("Practice Form"), PracticeFormPage.class);
         practiceFormPage.assertions.verifyElementIsVisible(practiceFormPage.practiceFormTitle);
     }
 

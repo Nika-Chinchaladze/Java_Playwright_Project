@@ -9,7 +9,6 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -27,11 +26,6 @@ public class BaseTest {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
         page = browser.newPage();
-    }
-
-    @BeforeMethod
-    public void loadApplication() {
-        page.navigate(url);
         homePage = new HomePage(page);
     }
 

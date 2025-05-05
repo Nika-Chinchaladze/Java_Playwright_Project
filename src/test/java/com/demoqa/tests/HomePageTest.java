@@ -7,9 +7,8 @@ import org.testng.annotations.Test;
 @Feature("HomePageTest")
 public class HomePageTest extends BaseTest {
     @Test(description = "test Home Page Functionality")
-    public void testHomePage() {
-        homePage.waiters.waitForTimeOut(2000);
-        homePage.waiters.waitForPageUrl(url);
+    public void testUserIsRedirectedToHomePage() {
+        homePage.actions.navigateToUrl(homePage.url);
         homePage.verifyHomePage();
     }
 }

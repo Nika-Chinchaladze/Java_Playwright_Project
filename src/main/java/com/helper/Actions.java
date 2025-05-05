@@ -2,6 +2,7 @@ package com.helper;
 
 import com.data.enums.ClickOptions;
 import com.data.enums.ScrollOptions;
+import com.microsoft.playwright.Dialog;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.SelectOption;
@@ -9,6 +10,11 @@ import com.microsoft.playwright.options.SelectOption;
 public class Actions extends BaseHelp {
     public Actions(Page page) {
         super(page);
+    }
+
+    public void navigateToUrl(String url) {
+        page.navigate(url);
+        page.waitForURL(url);
     }
 
     public void clickOnElement(Locator element) {
@@ -68,5 +74,19 @@ public class Actions extends BaseHelp {
     public void selectByIndex(Locator element, Integer index) {
         scrollToElementJS(element);
         element.selectOption(new SelectOption().setIndex(index));
+    }
+
+    public void acceptAlert() {
+        page.onDialog(Dialog::accept);
+    }
+
+    public void dismissAlert() {
+        page.onDialog(Dialog::dismiss);
+    }
+
+    public void fillAlert(String alertText) {
+        page.onDialog(dialog -> {
+            dialog.accept(alertText);
+        });
     }
 }

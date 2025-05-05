@@ -9,12 +9,8 @@ import com.microsoft.playwright.Page;
 public class HomePage extends BasePage {
     // Locators
     public Locator cards = page.locator(".category-cards");
-    public Locator practiceForm = page.locator("//span[text()='Practice Form']");
-    public Locator webTables = page.locator("//span[text()='Web Tables']");
-    public Locator links = page.locator("//span[text()='Links']");
-    public Locator selectMenu = page.locator("//span[text()='Select Menu']");
-    public Locator datePicker = page.locator("//span[text()='Date Picker']");
-    public Locator modalDialogs = page.locator("//span[text()='Modal Dialogs']");
+    public String url = "https://demoqa.com/";
+
     // Constructor
     public HomePage(Page page) {
         super(page);
@@ -28,6 +24,10 @@ public class HomePage extends BasePage {
     // Actions
     protected Locator getCardLocator(String cardName) {
         return page.locator("//h5[contains(text(), '" + cardName + "')]");
+    }
+
+    public Locator getSectionLocator(String sectionName) {
+        return page.locator("//span[text()='" + sectionName + "']");
     }
 
     public <T> T transferToSpecificPage(String cardName, Locator element, Class<T> pageClassName) {

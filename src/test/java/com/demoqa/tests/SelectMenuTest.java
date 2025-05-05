@@ -6,13 +6,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.assertTrue;
+
 public class SelectMenuTest extends BaseTest {
     private SelectMenuPage selectMenuPage;
 
     @BeforeMethod(description = "transferToSelectMenuPage")
-    public void navigateToSelectMenuPage() {
+    public void testUserIsRedirectedToSelectMenuPage() {
+        homePage.actions.navigateToUrl(homePage.url);
         homePage.verifyHomePage();
-        selectMenuPage = homePage.transferToSpecificPage("Widgets", homePage.selectMenu, SelectMenuPage.class);
+        selectMenuPage = homePage.transferToSpecificPage("Widgets", homePage.getSectionLocator("Select Menu"), SelectMenuPage.class);
         selectMenuPage.verifySelectMenuPage();
     }
 
@@ -24,18 +27,18 @@ public class SelectMenuTest extends BaseTest {
     @Test(description = "Test - select by visible text")
     public void testSelectByTextOld() {
         selectMenuPage.actions.selectByVisibleText(selectMenuPage.oldSelect, "Blue");
-        selectMenuPage.assertions.verifyDropDownSelectedElement(selectMenuPage.oldSelect, "Blue");
+        assertTrue(selectMenuPage.assertions.verifyDropDownSelectedElement(selectMenuPage.oldSelect, "Blue"));
     }
 
     @Test(description = "Test - select by hidden value")
     public void testSelectByValueOld() {
         selectMenuPage.actions.selectByHiddenValue(selectMenuPage.oldSelect, "1");
-        selectMenuPage.assertions.verifyDropDownSelectedElement(selectMenuPage.oldSelect, "Blue");
+        assertTrue(selectMenuPage.assertions.verifyDropDownSelectedElement(selectMenuPage.oldSelect, "Blue"));
     }
 
     @Test(description = "Test - select by index")
     public void testSelectByIndexOld() {
         selectMenuPage.actions.selectByIndex(selectMenuPage.oldSelect, 1);
-        selectMenuPage.assertions.verifyDropDownSelectedElement(selectMenuPage.oldSelect, "Blue");
+        assertTrue(selectMenuPage.assertions.verifyDropDownSelectedElement(selectMenuPage.oldSelect, "Blue"));
     }
 }
