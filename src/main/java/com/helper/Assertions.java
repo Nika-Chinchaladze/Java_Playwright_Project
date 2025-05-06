@@ -51,12 +51,12 @@ public class Assertions extends BaseHelp {
     }
 
     public boolean verifyDropDownSelectedElement(Locator element, String value) {
-        return element.inputValue().contains(value);
+        return element.textContent().contains(value);
     }
 
     public boolean verifyAlertByTextContent(Locator element, String alertText, boolean acceptOption, String promptText) {
         CompletableFuture<Boolean> result = new CompletableFuture<>();
-        page.onDialog(dialog -> {
+        page.onceDialog(dialog -> {
             boolean match = dialog.message().contains(alertText);
             if (acceptOption) {
                 dialog.accept(promptText);

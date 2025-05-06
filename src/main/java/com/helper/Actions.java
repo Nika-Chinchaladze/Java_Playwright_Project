@@ -77,15 +77,15 @@ public class Actions extends BaseHelp {
     }
 
     public void acceptAlert() {
-        page.onDialog(Dialog::accept);
+        page.onceDialog(Dialog::accept);
     }
 
     public void dismissAlert() {
-        page.onDialog(Dialog::dismiss);
+        page.onceDialog(Dialog::dismiss);
     }
 
     public void fillAlert(String alertText) {
-        page.onDialog(dialog -> {
+        page.onceDialog(dialog -> {
             dialog.accept(alertText);
         });
     }
